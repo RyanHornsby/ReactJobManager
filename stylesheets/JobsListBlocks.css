@@ -1,0 +1,80 @@
+.jobsBlockTitle {
+    display: flex;
+    padding: 20px;
+    width: 350px;
+    justify-content: center;
+    border-bottom: 1px solid grey;
+    width: 100%;
+}
+.jobsBlock {    
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 30%;
+}
+.jobsBlockList {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.Idling {
+    background-color: lightcoral;
+}
+.InProgress {
+    background-color: rgb(241, 241, 101);
+}
+.Completed {
+    background-color: lightgreen;
+}
+img {
+    width: 50px;
+    height: 40px;
+    align-self: center;
+    margin-left: 20px;
+}
+ul {
+    padding-right: 40px;
+    width: 100%;
+}
+.listElement {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.listElement > div {
+    max-width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+li > div > span {
+    word-break: break-word;
+    text-wrap: wrap;
+    white-space: normal;
+    font-weight: bold;
+}
+p {
+    margin: 16px 0;
+    text-align: center;
+    align-content: center;
+}
+.faIcons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    align-items: center;
+}
+
+/*Font Awesome Icons*/
+svg {
+    cursor: pointer;
+}
+svg.fa-trash-can:hover {
+    color: rgb(223, 51, 51);
+}
+svg.fa-pencil:hover {
+    color: rgb(61, 124, 197);
+}

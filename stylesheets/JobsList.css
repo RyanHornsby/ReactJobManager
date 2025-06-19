@@ -1,0 +1,30 @@
+#JobsListSection {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin-top: 50px;
+}
+#nuclearOption {
+    margin-left: 2.2%;
+}
+#cancelEdit {
+    float: right;
+    margin-right: 2.2%;
+    display: none;
+}
+#cancelEdit.editMode {
+    display: block;
+}
+
+/*Disables stuff when disabled applied*/
+#JobsListSection.disabled {
+    color: grey;
+    filter: grayscale(50%);
+}
+.disabled img {
+    filter: grayscale(100%);
+}
+.disabled svg, .disabled svg:hover {
+    cursor: default;
+    color: grey;
+}

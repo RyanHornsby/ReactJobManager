@@ -1,0 +1,11 @@
+.App {
+    margin: 0;
+    padding: 0;
+}
+
+button:not(:disabled):hover {
+    background-color: rgb(201, 199, 199);
+}
+button:disabled {
+    cursor: default;
+}

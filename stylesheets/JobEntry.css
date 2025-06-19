@@ -1,0 +1,51 @@
+#jobEntrySection {
+    width: 100%;
+    justify-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid black;
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+label, p {
+    font-size: 26px;
+    padding-bottom: 0px;
+}
+
+input {
+    font-size: 24px;
+    padding: 5px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+button, select {
+    font-size:18px;    
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 40px;
+}
+.jobTypesButton {
+    width: 130px;
+}
+ 
+#jobTypesInner {
+    display: grid;
+    grid-template-columns: 10fr 5fr;
+    justify-self: center;
+}
+
+#addJobButton {
+    width: 130px;
+}
+
+.selectedJobType {
+    border: 3px solid rgb(90, 38, 38);
+    font-weight: bold;
+}
