@@ -45,15 +45,13 @@ ul {
 }
 .listElement > div {
     max-width: 70%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow: hidden;    
+    word-break: break-word;    
+    text-wrap: wrap;
+    white-space: normal;
     margin-right: 10px;
 }
 li > div > span {
-    word-break: break-word;
-    text-wrap: wrap;
-    white-space: normal;
     font-weight: bold;
 }
 p {

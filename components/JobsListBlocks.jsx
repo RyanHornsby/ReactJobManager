@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan, faPencil } from '@fortawesome/free-solid-svg-icons';
 
 const JobsListBlocks = ({jobs, sectionName, imageSource, imageAlt, deleteJob, editJobPart1, greyedOut}) => {
-  const isEmpty = jobs.filter(job => job.Status === sectionName);
+  const jobsPerStatus = jobs.filter(job => job.Status === sectionName);
 
   return (
     <div className={`jobsBlock ${sectionName.replace(" ", "")}`}>
@@ -13,11 +13,11 @@ const JobsListBlocks = ({jobs, sectionName, imageSource, imageAlt, deleteJob, ed
         <img src={imageSource} alt={imageAlt}></img>
       </div>
       <div className="jobsBlockList">
-        {isEmpty.length > 0 ? (
+        {jobsPerStatus.length > 0 ? (
           <ul>
-            {isEmpty.map(job => (
+            {jobsPerStatus.map(job => (
               <li className="listElement" key={job.Name}>
-                <div><span>•&nbsp;{job.Name}</span> ({job.Type})</div>
+                <div><span>•&nbsp;{job.Name}</span> ({job.TypeStylised})</div>
                 <div className="faIcons">
                   {/*If disabled, do not allow editing / deleting*/}
                   <FontAwesomeIcon icon={faPencil} onClick={(e) => greyedOut ? "" : editJobPart1(e)}/>

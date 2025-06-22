@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import '../stylesheets/JobEntry.css'
 
-const JobEntry = ({addJob, editJobPart2, jobs, editAdd, jobName, setJobName, jobType, jobStatus, setJobStatus, highlightSelectedButton, greyedOut, resetter}) => {
+const JobEntry = ({addJob, editJobPart2, jobs, editAdd, jobName, setJobName, jobType, jobTypeStylised, jobStatus, setJobStatus, highlightSelectedButton, greyedOut, resetter, selectedButtons}) => {
   const [fieldsFilled, setFieldsFilled] = useState("disabled");
 
   // Calls addJob with the values set
@@ -15,14 +15,16 @@ const JobEntry = ({addJob, editJobPart2, jobs, editAdd, jobName, setJobName, job
                   return;
               };    
           }
-          const newJobEntry = {jobName, jobType, jobStatus};
+          jobType.sort();
+          const newJobEntry = {jobName, jobType, jobTypeStylised, jobStatus};
           addJob(newJobEntry);
           // Resets everything ready for next job
           resetter();
           return;
       }
       // Just so it runs the first time when the object is empty
-      const newJobEntry = {jobName, jobType, jobStatus};
+      jobType.sort();
+      const newJobEntry = {jobName, jobType, jobTypeStylised, jobStatus};
       addJob(newJobEntry);
       resetter();
       return;
@@ -30,7 +32,7 @@ const JobEntry = ({addJob, editJobPart2, jobs, editAdd, jobName, setJobName, job
 
   // Disables the add job button unless all fields have info
   useEffect(() => {
-    if ([jobName, jobType].some(value => value.trim() === "")) {
+    if (jobName.trim() === "" || jobType.length===0) {
       setFieldsFilled("disabled");
       return
     }
@@ -47,9 +49,9 @@ const JobEntry = ({addJob, editJobPart2, jobs, editAdd, jobName, setJobName, job
             <p>What type of job is it?</p>
             <div id="jobTypesInner">
                 <div id="jobTypeButtons">
-                    <button value="Read Emails" type="button" className="jobTypesButton" onClick={(e) => highlightSelectedButton(e.target)}>Read Emails</button>
-                    <button value="Send Emails" type="button" className="jobTypesButton" onClick={(e) => highlightSelectedButton(e.target)}>Send Emails</button>
-                    <button value="Web Parsing" type="button" className="jobTypesButton" onClick={(e) => highlightSelectedButton(e.target)}>Web Parsing</button>
+                    <button value="Read Emails" type="button" className={`jobTypesButton ${selectedButtons["Read Emails"]}`} onClick={(e) => highlightSelectedButton(e.target)}>Read Emails</button>
+                    <button value="Send Emails" type="button" className={`jobTypesButton ${selectedButtons["Send Emails"]}`} onClick={(e) => highlightSelectedButton(e.target)}>Send Emails</button>
+                    <button value="Web Parsing" type="button" className={`jobTypesButton ${selectedButtons["Web Parsing"]}`} onClick={(e) => highlightSelectedButton(e.target)}>Web Parsing</button>
                 </div>
                 <div> 
                 <select value={jobStatus} id="jobProgressSelection" onChange={(e) => setJobStatus(e.target.value)}>
